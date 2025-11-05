@@ -19,7 +19,7 @@ void main() async {
 class TodoApp extends StatefulWidget {
   final PreferencesService preferencesService;
 
-  const TodoApp({Key? key, required this.preferencesService});
+  const TodoApp({super.key, required this.preferencesService});
 
   @override
   State<TodoApp> createState() => _TodoAppState();

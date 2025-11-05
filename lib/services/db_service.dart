@@ -24,7 +24,6 @@ class DbService {
   Future<Database> _initDb() async {
     final dbPath = await getDatabasesPath();
     // Nombre del archivo de la BD.
-    // Nota: La extension '.dn' podria ser un typo, normalmente se usa '.db'
     final path = join(dbPath, 'todo_app.db');
 
     return await openDatabase(
@@ -65,6 +64,7 @@ class DbService {
   // Elimina una tarea segun su id
   Future<int> deleteTask(int id) async {
     final db = await database;
+    //marcamos el id como un ? y en el argumento que va a buscar le pasamos ese valor
     return await db.delete('tasks', where: 'id = ?', whereArgs: [id]);
   }
 }
